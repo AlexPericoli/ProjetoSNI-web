@@ -11,28 +11,30 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function PageContent() {
    return (
       <Row style={{ height: "100vh" }}>
-         <div style={{ width: "15%" }}>
+         <div style={{ width: "16%" }}>
             <Sidebar />
          </div>
-         <div style={{ width: "85%", backgroundColor: "gold" }}>
-            <div style={{ height: "50px", backgroundColor: "#fff" }}>
+         <div style={{ width: "84%", backgroundColor: "gold" }}>
+            <div style={{ height: "98px", backgroundColor: "#fff" }}>
                <div style={{ display: "flex" }}>
                   <div
                      style={{
                         flex: 1,
                         width: "50%",
-                        paddingTop: "10px",
-                        backgroundColor: "seagreen",
+                        paddingTop: "5px",
                      }}
                   >
-                     <p className="h6">BREADCRUMB</p>
+                     <p className="h6">
+                        <strong style={{ marginLeft: "11px" }}>
+                           Quarta-feira, 10 de março de 2021 - 19:27 PM
+                        </strong>
+                     </p>
                   </div>
                   <div
                      style={{
                         flex: 1,
                         textAlign: "right",
                         paddingTop: "10px",
-                        backgroundColor: "lightblue",
                      }}
                   >
                      <div style={{ lineHeight: "5px" }}>
