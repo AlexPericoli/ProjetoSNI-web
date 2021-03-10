@@ -1,0 +1,19 @@
+:root {
+   --color-preto-1: #222;
+   --color-preto-2: #445;
+   --color-preto-3: #444;
+   --color-branco-1: #fff;
+   --color-branco-2: #f0f0f7;
+   --color-cinza-1: #777;
+   --color-subtitulo-1: #db3;
+   --color-azul-logo: #248;
+   --color-azul-logo-2: #46a;
+   --color-barra-titulo-1: #15e;
+   --color-menu-1: #c31;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
