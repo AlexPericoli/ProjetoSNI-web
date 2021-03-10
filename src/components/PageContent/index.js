@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function PageContent() {
    return (
       <Row style={{ height: "100vh" }}>
-         <div style={{ width: "15%", backgroundColor: "crimson" }}>
+         <div style={{ width: "15%" }}>
             <Sidebar />
          </div>
          <div style={{ width: "85%", backgroundColor: "gold" }}>
@@ -44,7 +44,7 @@ export default function PageContent() {
                   </div>
                </div>
             </div>
-            <div>HEADER</div>
+            <div>CONTENT</div>
          </div>
       </Row>
    );
