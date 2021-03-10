@@ -1,27 +1,36 @@
-import { Container, LinkText } from "./styles";
+import { LinkText } from "./styles";
 import { useSelector } from "react-redux";
+
+import { IoLogOutSharp } from "react-icons/fa";
 
 import logotipo from "../../assets/images/logotipo.jpg";
 
-import { FiArrowLeft } from "react-icons/fi";
+//import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import "./fonts.css";
 
 export default function TopBar() {
    const authUser = useSelector((state) => state.usuarios.authUser);
 
    return (
-      <Container>
-         <div className="cabecalho">
-            <img src={logotipo} alt="" />
-            <h1>Sistema Seicho No Ie</h1>
-            <div className="info_usuario">
-               {/*}
-               <p>
-                  Bem-vindo, <strong>Alexandre Marian</strong>
-               </p>
-               <p>segunda-feira, 26 de outubro de 2020</p>
-               {*/}
+      <div>
+         <Row className="align-items-center">
+            <div
+               style={{
+                  height: "120px",
+                  margin: 0,
+                  padding: 0,
+               }}
+            >
+               <div style={{ width: "150px" }}>
+                  <img src={logotipo} width="100%" alt="" />
+               </div>
             </div>
-         </div>
+         </Row>
          <div className="menu">
             <div>
                <LinkText to="/">Home</LinkText>
@@ -35,6 +44,6 @@ export default function TopBar() {
             <div>Consultas</div>
             <div>Livraria</div>
          </div>
-      </Container>
+      </div>
    );
 }

@@ -18,6 +18,11 @@
    box-sizing: border-box;
 }
 
+body {
+   font-family: "Lato";
+}
+
+/*
 input {
    height: 40px;
    padding: 8px;
@@ -26,3 +31,4 @@ input {
    outline: 0;
    border-radius: 8px;
 }
+*/

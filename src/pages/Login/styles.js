@@ -1,41 +1,37 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-   width: 100%;
-   height: 500px;
    display: flex;
    align-items: center;
    justify-content: center;
+
+   width: 100%;
+   height: 500px;
+
    border-radius: 25px;
-
-   .conteudo_pagina {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      width: 40%;
-      padding: 5px 8px;
-      color: var(--color-preto-1);
-      background-color: var(--color-preto-3);
-      border-radius: 15px;
-   }
 `;
 
-export const AreaLogin = styled.div`
-   margin-top: 20px;
-   width: 660px;
+export const PageContent = styled.div`
    display: flex;
-   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+
+   width: 40%;
+   padding: 5px 8px;
+   color: var(--color-preto-1);
+   background-color: var(--color-preto-3);
+   border-radius: 15px;
 `;
 
 export const AreaImagem = styled.div`
-   width: 350px;
-   height: 100%;
-   display: flex;
+   flex: 1;
    align-items: center;
    justify-content: center;
+
    border-top-left-radius: 25px;
    border-bottom-left-radius: 25px;
+
+   background-color: yellow;
 
    img {
       width: 90%;
@@ -43,18 +39,12 @@ export const AreaImagem = styled.div`
    }
 `;
 
-export const AreaInput = styled.div`
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   border-top-right-radius: 25px;
-   border-bottom-right-radius: 25px;
-`;
-
 export const AreaForm = styled.div`
-   display: flex;
+   flex: 1;
    align-items: center;
    justify-content: center;
+
+   background-color: darkred;
 
    form {
       width: 80%;

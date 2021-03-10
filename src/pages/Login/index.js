@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+
 import api from "../../services/api";
 
 import {
@@ -9,7 +12,7 @@ import {
    AreaForm,
    AreaImagem,
    AreaInput,
-   Container,
+   PageContent,
 } from "./styles";
 
 import logotipo from "../../assets/images/logotipo.jpg";
@@ -54,36 +57,34 @@ export default function Home() {
 
    return (
       <Container>
-         <div className="conteudo_pagina">
-            <AreaLogin>
-               <AreaImagem>
-                  <img src={logotipo} alt="" />
-               </AreaImagem>
-               <AreaInput>
-                  <AreaForm>
-                     <form onSubmit={handleSubmit}>
-                        <label htmlFor="email">E-mail</label>
-                        <input
-                           type="text"
-                           id="email"
-                           onChange={(event) => setEmail(event.target.value)}
-                        />
+         <PageContent>
+            <AreaImagem>{/*}<img src={logotipo} alt="" />{*/}</AreaImagem>
+            <AreaForm>
+               <form onSubmit={handleSubmit}>
+                  <label htmlFor="email" className="form-label">
+                     E-mail
+                  </label>
+                  <input
+                     type="text"
+                     id="email"
+                     className="form-control"
+                     onChange={(event) => setEmail(event.target.value)}
+                  />
 
-                        <label htmlFor="senha">Senha</label>
-                        <input
-                           type="text"
-                           id="senha"
-                           onChange={(event) => setSenha(event.target.value)}
-                        />
+                  <label htmlFor="senha">Senha</label>
+                  <input
+                     type="text"
+                     id="senha"
+                     className="form-control"
+                     onChange={(event) => setSenha(event.target.value)}
+                  />
 
-                        <div>
-                           <button type="submit">LOGIN</button>
-                        </div>
-                     </form>
-                  </AreaForm>
-               </AreaInput>
-            </AreaLogin>
-         </div>
+                  <Button type="submit" className="btn btn-default btn-block">
+                     Login
+                  </Button>
+               </form>
+            </AreaForm>
+         </PageContent>
       </Container>
    );
 }
