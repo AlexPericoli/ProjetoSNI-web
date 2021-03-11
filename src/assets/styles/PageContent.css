@@ -1,0 +1,19 @@
+.app-main {
+   height: 100vh;
+}
+
+.sidebar {
+   width: 16%;
+
+   background-color: #678
+};
+
+.statusbar {
+   display: flex;
+
+   height: 99px;
+}
+
+.content-area {
+   width: 84%;
+}

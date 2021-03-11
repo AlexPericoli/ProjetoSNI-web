@@ -11,7 +11,7 @@ import Row from "react-bootstrap/Row";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import "./fonts.css";
+import "../../assets/styles/fonts.css";
 
 export default function TopBar() {
    const authUser = useSelector((state) => state.usuarios.authUser);

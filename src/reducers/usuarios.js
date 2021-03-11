@@ -2,8 +2,8 @@ const initial_state = {
    authUser: {
       token: "",
       id_usuario: 0,
-      nome: "",
-      funcao: "",
+      nome: "Alexandre Marian Pericoli",
+      funcao: "Preletor",
    },
 };
 
