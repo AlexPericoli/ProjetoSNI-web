@@ -1,11 +1,11 @@
 import React from "react";
+import Routes from "../routes";
 
 import Sidebar from "./Sidebar";
 import Statusbar from "./Statusbar";
 
 import Row from "react-bootstrap/Row";
 
-import { sidebar, statusbar, content_area } from "../assets/styles/PageContent";
 import "../assets/styles/PageContent.css";
 
 export default function PageContent() {
@@ -18,7 +18,9 @@ export default function PageContent() {
             <div className="statusbar">
                <Statusbar />
             </div>
-            <div>CONTENT</div>
+            <div className="routes-content">
+               <Routes />
+            </div>
          </div>
       </Row>
    );

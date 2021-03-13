@@ -25,7 +25,6 @@ function App() {
             style={{
                height: "100vh",
                margin: "auto",
-               backgroundColor: appBgColor,
             }}
          >
             <Row

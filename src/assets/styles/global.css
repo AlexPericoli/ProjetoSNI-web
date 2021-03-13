@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700;900&display=swap');
+
 :root {
+   --logotipo-1: #e40;
+   --logotipo-2: #5a2;
    --color-preto-1: #222;
    --color-preto-2: #445;
    --color-preto-3: #444;
@@ -19,7 +23,8 @@
 }
 
 body {
-   font-family: "Lato";
+   font: 400 14px Lato, sans-serif;
+   background-color: #f0f0f5;
 }
 
 /*
