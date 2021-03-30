@@ -1,51 +1,18 @@
-import React from "react";
-import PageContent from "./components/PageContent.js";
+import './styles/global.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { ThemeProvider } from "styled-components";
+import { Page404 } from './pages/Page404';
+import { Page500 } from './pages/Page500';
+import { PageContent } from './pages/PageContent';
 
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-
-import "./assets/styles/global.css";
-import { Cores } from "./assets/styles/cores";
-
-import "./assets/styles/fonts.css";
-
-function App() {
-   //const appBgColor = Cores.fundo_padrao;
-   const appBgColor = "#000";
-   const contentbgColor = Cores.branco_3;
-
+export function App() {
    return (
-      <ThemeProvider theme={Cores}>
-         <div
-            className="container-fluid"
-            style={{
-               height: "100vh",
-               margin: "auto",
-            }}
-         >
-            <Row
-               style={{
-                  height: "100vh",
-                  margin: "auto",
-                  backgroundColor: appBgColor,
-               }}
-            >
-               <Col style={{ backgroundColor: "#000" }} className="col-1"></Col>
-               <Col
-                  style={{ backgroundColor: contentbgColor }}
-                  className="col-10"
-               >
-                  <PageContent />
-               </Col>
-               <Col style={{ backgroundColor: "#000" }} className="col-1"></Col>
-            </Row>
-         </div>
-      </ThemeProvider>
+      <BrowserRouter>
+         <Switch>
+            <Route exact path="/page404" name="Page 404" component={Page404} />
+            <Route exact path="/page500" name="Page 500" component={Page500} />
+            <Route path="/" name="Home" component={PageContent} />
+         </Switch>
+      </BrowserRouter>
    );
 }
-
-export default App;

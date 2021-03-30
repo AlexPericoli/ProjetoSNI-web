@@ -1,66 +1,106 @@
-import { useState, useEffect } from "react";
-import api from "../../services/api";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import PageTitle from '../../components/PageTitle';
+import { CardPreletor } from '../../components/CardPreletor';
 
-import { Container, AreaPreletores, AssociacaoLocalItem } from "./styles";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
-import TituloPagina from "../../components/TituloPagina";
-import CardPreletor from "../../components/CardPreletor";
+import {
+   PageContent,
+   ParteSuperior,
+   ParteInferior,
+   AreaFoto,
+   AreaPalestras,
+   TituloSuperior,
+   PreletorLocal,
+   PalestrasArea,
+   PalestraItem,
+   PalestraData,
+   PalestraDescricao,
+   //   PalestraDescricao,
+} from './styles';
+import { array as dataPreletores } from '../../services/dataPreletores';
 
-import logotipo from "../../assets/images/logotipo2.jpg";
+export function Preletores() {
+   const [exibirModal, setExibirModal] = useState(false);
+   //const [preletor] = useState({});
 
-export default function Preletores() {
-   const [regional, setRegional] = useState("");
-
-   console.log("teste");
-   const token =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF9hc3NvY19sb2NhbCI6MywiaWF0IjoxNjA3MDA2NzU4LCJleHAiOjE2MDcwOTMxNTgsInN1YiI6IjE3In0.daWXuHQXQPRHeiEoR1IOCZu-Sm07QXkKOBWzTkbbUOo";
-
-   useEffect(() => {
-      api.get("usuarios", { headers: { Authorization: token } }).then(
-         (data) => {
-            console.log(data);
-         }
-      );
-   }, []);
+   function handleClose() {
+      return true;
+   }
 
    return (
-      <Container>
-         <div className="conteudo_pagina">
-            <TituloPagina
-               titulo="Preletores"
-               subTitulo="Regional SP-Aricanduva"
-            />
-            <AreaPreletores>
-               <AssociacaoLocalItem>
-                  <div className="al_cabecalho">
-                     <img src={logotipo} alt="" />
-                     <h3>Associação Local Vila Carrão</h3>
-                  </div>
-                  <div className="area_preletores">
-                     <CardPreletor
-                        nome="Marie Murakami"
-                        nivel="em grau sênior"
-                        imagem="marie-murakami"
-                     />
-                     <CardPreletor
-                        nome="Heitor Myiazaki"
-                        nivel="da sede internacional"
-                        imagem="heitor-myiazaki"
-                     />
-                     <CardPreletor
-                        nome="Arquimedes Ventura"
-                        nivel="em grau master"
-                        imagem="arquimedes"
-                     />
-                     <CardPreletor
-                        nome="Iara Regina Colombo"
-                        nivel="em grau master"
-                        imagem="arquimedes"
-                     />
-                  </div>
-               </AssociacaoLocalItem>
-            </AreaPreletores>
-         </div>
-      </Container>
+      <>
+         <PageTitle title="Preletores" color="#000" />
+         <PageContent>
+            {dataPreletores.map((item) => (
+               <>
+                  <Link onClick={() => setExibirModal(true)}>
+                     <CardPreletor key={item.id} preletor={item} />
+                  </Link>
+               </>
+            ))}
+         </PageContent>
+
+         <Modal show={exibirModal} onHide={handleClose} size="lg" centered>
+            <Modal.Header closeButton>
+               <Modal.Title>
+                  <ParteSuperior>
+                     <AreaFoto>
+                        <img
+                           width="100%"
+                           src="https://docplayer.com.br/docs-images/63/50451885/images/11-3.jpg"
+                           alt=""
+                        />
+                     </AreaFoto>
+                     <TituloSuperior>Preletor Heitor Miyazaki</TituloSuperior>
+                     <PreletorLocal>Sede internacional</PreletorLocal>
+                  </ParteSuperior>
+                  <ParteInferior>
+                     <AreaPalestras>
+                        <PalestrasArea>
+                           <PalestraItem>
+                              <PalestraData>10/03/2021</PalestraData>
+                              <PalestraDescricao>
+                                 Princípio do relógio de sol
+                              </PalestraDescricao>
+                           </PalestraItem>
+                           <PalestraItem>
+                              <PalestraData>10/03/2021</PalestraData>
+                              <PalestraDescricao>
+                                 A importância de orar pelos antepassados
+                              </PalestraDescricao>
+                           </PalestraItem>
+                           <PalestraItem>
+                              <PalestraData>10/03/2021</PalestraData>
+                              <PalestraDescricao>
+                                 As palavras criam o nosso destino
+                              </PalestraDescricao>
+                           </PalestraItem>
+                        </PalestrasArea>
+                     </AreaPalestras>
+                  </ParteInferior>
+               </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta
+               asperiores repudiandae iusto facilis cum unde quia temporibus
+               suscipit sunt officia blanditiis quasi commodi, ex saepe totam ea
+               quos consequuntur neque!
+            </Modal.Body>
+            <Modal.Footer>
+               <Button
+                  variant="secondary"
+                  onClick={() => setExibirModal(false)}
+               >
+                  Close
+               </Button>
+               <Button variant="primary" onClick={handleClose}>
+                  Save Changes
+               </Button>
+            </Modal.Footer>
+         </Modal>
+      </>
    );
 }

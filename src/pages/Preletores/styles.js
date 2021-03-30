@@ -1,65 +1,81 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const Branco1 = (props) => props.theme.branco_1;
-const Preto3 = (props) => props.theme.preto_3;
-
-export const Container = styled.div`
-   flex: 1;
-   display: flex;
-   align-items: center;
-   flex-direction: column;
-
-   .conteudo_pagina {
-      width: 90%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-   }
-`;
-
-export const AreaPreletores = styled.div`
+export const PageTitleArea = styled.div`
    width: 100%;
+   margin: 0;
+   padding: 0;
 `;
 
-export const AssociacaoLocalItem = styled.div`
+export const PageContent = styled.div`
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+
+   width: 100%;
+   height: 95%;
+   background-color: #ddd;
+
+   overflow-y: scroll;
+`;
+
+export const CardList = styled.div`
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+
+   width: 100%;
+   height: 95%;
+   background-color: #ddd;
+
+   overflow-y: scroll;
+`;
+
+export const ParteSuperior = styled.div`
+   display: flex;
+
+   height: 50%;
+   font-family: Lato;
+`;
+
+export const AreaFoto = styled.div`
+   width: 30%;
+   border: 1px solid #999;
+`;
+
+export const AreaPalestras = styled.div`
+   width: 70%;
+   padding: 0 10px;
+
+   text-align: left;
+   line-height: 5px;
+`;
+
+export const TituloSuperior = styled.h1`
+   margin-bottom: 25px;
+   font-size: 25px;
+`;
+
+export const PreletorLocal = styled.h1`
+   font-size: 19px;
+`;
+
+export const PalestrasArea = styled.div``;
+
+export const PalestraItem = styled.div`
+   margin-bottom: 30px;
+`;
+
+export const PalestraData = styled.p`
+   font-size: 17px;
+`;
+
+export const PalestraDescricao = styled.p`
+   font-size: 17px;
+`;
+
+export const ParteInferior = styled.div`
    display: flex;
    flex-direction: column;
-   padding: 5px;
-   background-color: ${Preto3};
 
-   .al_cabecalho {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 5px;
-      border-bottom: 1px solid ${Branco1};
-      border-bottom-left-radius: 8px;
-
-      img {
-         width: 45px;
-         height: 45px;
-         border-radius: 8px;
-      }
-
-      h3 {
-         color: var(--color-branco-1);
-         display: flex;
-         align-items: center;
-         margin-left: 10px;
-         color: var(--color-branco-1);
-         font: 100 23px "Lato", sans-serif;
-      }
-   }
-
-   .area_preletores {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      padding: 20px 5px;
-
-      margin-left: 5px;
-      border-bottom: 1px solid #888;
-      background-color: ${Preto3};
-   }
+   height: 50%;
 `;
