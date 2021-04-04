@@ -3,86 +3,201 @@ import { Link } from 'react-router-dom';
 import { MenuTitle } from '../../components/SidebarMenu';
 
 import {
-   FaUserTie,
-   FaUsers,
+   //FaUserTie,
+   //FaUsers,
+   FaShopify,
    FaPrayingHands,
    FaBook,
-   FaCog,
+   //FaCog,
 } from 'react-icons/fa';
 
 //import "../assets/styles/Sidebar.css";
 
-import { LogoArea, LogoTitleArea, MenuArea } from './styles';
-import { FcHome } from 'react-icons/fc';
-import { RiCalendarEventLine } from 'react-icons/ri';
+import { Container, MenuArea } from './styles';
+import {
+   FcHome,
+   FcConferenceCall,
+   FcBusinessman,
+   FcDepartment,
+   FcCalendar,
+   FcAutomatic,
+} from 'react-icons/fc';
+//import { RiCalendarEventLine } from 'react-icons/ri';
 import { BsFillHouseFill } from 'react-icons/bs';
-import { BiBuildingHouse } from 'react-icons/bi';
+//import { BiBuildingHouse } from 'react-icons/bi';
 
 export function Sidebar() {
-   const iconSize = 21;
+   const iconSize = 36;
+   const iconSizeFc = 36;
+   const iconBgColor = '#dda';
 
    return (
-      <div>
-         <LogoArea>
-            <LogoTitleArea>Associação local Vila Carrão</LogoTitleArea>
-         </LogoArea>
-
+      <Container>
          <MenuArea>
             <Link to="/">
-               <MenuTitle title="home" icon={<FcHome size={iconSize} />} />
+               <MenuTitle
+                  title="home"
+                  icon={
+                     <FcHome
+                        style={{
+                           border: '2px solid #000',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                        }}
+                        size={iconSizeFc}
+                     />
+                  }
+               />
             </Link>
 
             <Link to="/meetings">
-               <MenuTitle title="reuniões" icon={<FaUsers size={iconSize} />} />
+               <MenuTitle
+                  title="reuniões"
+                  icon={
+                     <FcConferenceCall
+                        style={{
+                           border: '2px solid #000',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                        }}
+                        size={iconSizeFc}
+                     />
+                  }
+               />
             </Link>
-
-            {/*}
-
-            <MenuItem title="Cadastro" />
-
-            <MenuItem title="Consulta" />
-
-            {*/}
 
             <Link to="/preletores">
                <MenuTitle
                   title="preletores"
-                  icon={<FaUserTie size={iconSize} />}
+                  icon={
+                     <FcBusinessman
+                        style={{
+                           border: '2px solid #000',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                        }}
+                        size={iconSizeFc}
+                     />
+                  }
                />
             </Link>
 
             <Link to="/regionais">
                <MenuTitle
                   title="regionais"
-                  icon={<BiBuildingHouse size={iconSize} />}
+                  icon={
+                     <FcDepartment
+                        style={{
+                           border: '2px solid #000',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                        }}
+                        size={iconSizeFc}
+                     />
+                  }
                />
             </Link>
 
             <Link to="/assoc_locais/1">
                <MenuTitle
                   title="associações locais"
-                  icon={<BsFillHouseFill size={iconSize} />}
+                  icon={
+                     <BsFillHouseFill
+                        style={{
+                           color: '#555',
+                           border: '2px solid #000',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                           padding: '3px',
+                        }}
+                        size={iconSize}
+                     />
+                  }
+               />
+            </Link>
+
+            <Link to="/pedidos">
+               <MenuTitle
+                  title="produtos em estoque"
+                  icon={
+                     <FaShopify
+                        style={{
+                           color: '#555',
+                           border: '2px solid #000',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                           padding: '3px',
+                        }}
+                        size={iconSize}
+                     />
+                  }
+               />
+            </Link>
+
+            <Link to="/books">
+               <MenuTitle
+                  title="catálogo de produtos"
+                  icon={
+                     <FaBook
+                        style={{
+                           color: '#555',
+                           border: '2px solid #000',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                           padding: '3px',
+                        }}
+                        size={iconSize}
+                     />
+                  }
                />
             </Link>
 
             <Link to="/events">
                <MenuTitle
                   title="eventos"
-                  icon={<RiCalendarEventLine size={iconSize} />}
+                  icon={
+                     <FcCalendar
+                        style={{
+                           border: '2px solid #000',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                        }}
+                        size={iconSizeFc}
+                     />
+                  }
                />
             </Link>
 
             <MenuTitle
                title="orações"
-               icon={<FaPrayingHands size={iconSize} />}
+               icon={
+                  <FaPrayingHands
+                     style={{
+                        color: '#555',
+                        border: '2px solid #000',
+                        backgroundColor: iconBgColor,
+                        borderRadius: '5px',
+                        padding: '3px',
+                     }}
+                     size={iconSize}
+                  />
+               }
             />
 
-            <Link to="/books">
-               <MenuTitle title="livraria" icon={<FaBook size={iconSize} />} />
-            </Link>
-
-            <MenuTitle title="configurações" icon={<FaCog size={iconSize} />} />
+            <MenuTitle
+               title="configurações"
+               icon={
+                  <FcAutomatic
+                     style={{
+                        border: '2px solid #000',
+                        backgroundColor: iconBgColor,
+                        borderRadius: '5px',
+                     }}
+                     size={iconSizeFc}
+                  />
+               }
+            />
          </MenuArea>
-      </div>
+      </Container>
    );
 }

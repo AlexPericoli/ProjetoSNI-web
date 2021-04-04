@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
 import PageTitle from '../../components/PageTitle';
+
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -8,9 +11,21 @@ import { array as dataProdutos } from '../../services/dataListaProdutos';
 
 import { PageContent, AreaDescricao } from './styles';
 
-export function VendasProdutos() {
+export function PedidosProdutos() {
+   const dispatch = useDispatch();
+
    const [exibirModal, setExibirModal] = useState(false);
    const [preletor] = useState({});
+
+   dispatch({
+      type: '@usuarios/SET_TOKEN',
+      payload: {
+         nome: 'Sérgio dos Santos Paulo',
+         nome_funcao: 'Preletor',
+         nome_perfil: 'Administrador',
+         nome_local: 'Regional Aricanduva',
+      },
+   });
 
    function fecharModal() {
       setExibirModal(false);
@@ -19,41 +34,55 @@ export function VendasProdutos() {
    return (
       <>
          <PageTitle
-            title="Vendas de Produtos / Associação local Vila Carrão"
-            color="#000"
+            title="Lista de produtos e quantidades em estoque"
+            subtitle="Regional SP-Aricanduva"
+            color="#fff"
          />
          <PageContent>
             <AreaDescricao>
-               <p>Clique no nome do produto para exibir mais detalhes</p>
+               <p
+                  style={{
+                     color: '#fff',
+                     backgroundColor: '#000',
+                     padding: '5px',
+                  }}
+               >
+                  Campo de busca e filtros
+               </p>
             </AreaDescricao>
             <Table
-               striped
                bordered
                style={{
-                  fontFamily: 'Lato',
-                  fontWeight: 500,
-                  border: '2px solid #aaa',
+                  border: '2px solid #555',
                }}
             >
                <thead className="table-dark">
-                  <tr style={{ fontSize: '15px' }}>
-                     <th style={{ width: 50, textAlign: 'center' }}>Estoque</th>
-                     <th width="20"></th>
-                     <th width="440">Descrição</th>
-                     <th>Categoria</th>
-                     <th width="100">Preço (R$)</th>
-                     <th style={{ width: 140, textAlign: 'center' }}>Qtd.</th>
-                     <th width="110">Total (R$)</th>
+                  <tr style={{ fontSize: '17px', textAlign: 'center' }}>
+                     <th width="5%">Estoque</th>
+                     <th width="45%">Descrição</th>
+                     <th width="15%">Categoria</th>
+                     <th width="15%">Preço (R$)</th>
+                     <th width="10%">Qtd.</th>
+                     <th width="10%">Total (R$)</th>
                   </tr>
                </thead>
-               <tbody>
+               <tbody style={{ fontSize: '21px', fontWeight: 400 }}>
                   {dataProdutos.map((item) => (
-                     <tr key={item.id} style={{ fontSize: '15px' }}>
-                        <td style={{ textAlign: 'right' }}>
+                     <tr key={item.id} style={{ border: '2px solid #aaa' }}>
+                        <td
+                           style={{
+                              textAlign: 'center',
+                              backgroundColor: '#dddddd',
+                           }}
+                        >
                            {item.qtd_estoque}
                         </td>
-                        <td></td>
-                        <td style={{ textAlign: 'left' }}>
+                        <td
+                           style={{
+                              textAlign: 'left',
+                              backgroundColor: '#d0d0d0',
+                           }}
+                        >
                            <a
                               onClick={() => setExibirModal(true)}
                               style={{ cursor: 'pointer' }}
@@ -62,12 +91,35 @@ export function VendasProdutos() {
                               {item.volume ? `vol. ${item.volume}` : ''}
                            </a>
                         </td>
-                        <td>{item.categoria}</td>
-                        <td align="right">{item.preco.toFixed(2)}</td>
-                        <td style={{ textAlign: 'center' }}>
+                        <td
+                           style={{
+                              backgroundColor: '#dddddd',
+                           }}
+                        >
+                           {item.categoria}
+                        </td>
+                        <td
+                           style={{
+                              textAlign: 'right',
+                              backgroundColor: '#d0d0d0',
+                           }}
+                        >
+                           {item.preco.toFixed(2)}
+                        </td>
+                        <td
+                           style={{
+                              textAlign: 'right',
+                              backgroundColor: '#dddddd',
+                           }}
+                        >
                            {item.qtd_venda}
                         </td>
-                        <td style={{ textAlign: 'right' }}>
+                        <td
+                           style={{
+                              textAlign: 'right',
+                              backgroundColor: '#d0d0d0',
+                           }}
+                        >
                            {(item.preco * item.qtd_venda).toFixed(2)}
                         </td>
                      </tr>

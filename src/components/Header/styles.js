@@ -45,8 +45,27 @@ export const InfoArea = styled.div`
    padding-right: 10px;
 `;
 
-export const InfoNomeUsuario = styled.p`
-   font-size: 16px;
+export const InfoUsuario = styled.p`
+   font-size: 19px;
    font-weight: 600;
-   line-height: 2px;
+   font-family: 'Oswald';
+   line-height: 1px;
+   letter-spacing: 0.4px;
+   text-transform: uppercase;
+
+   margin-top: 12px;
+`;
+
+export const InfoUsuarioDestaque = styled.p`
+   color: #fff;
+   background-color: #e21;
+   padding: 12px;
+   border-radius: 5px;
+
+   font-size: 18px;
+   font-weight: 600;
+   font-family: 'Oswald';
+   line-height: 1px;
+   letter-spacing: 0.4px;
+   text-transform: uppercase;
 `;

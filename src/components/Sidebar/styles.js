@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+   display: flex;
+   flex-direction: column;
+`;
+
 export const LogoArea = styled.div`
    display: flex;
    align-items: center;
@@ -7,11 +12,11 @@ export const LogoArea = styled.div`
    border-right: 1px solid #888;
    border-bottom: 1px solid #888;
 
+   height: 81px;
    background-color: #fff;
 `;
 
 export const LogoTitleArea = styled.div`
-   width: 60%;
    padding-left: 5px;
 
    font-size: 17px;
@@ -20,8 +25,6 @@ export const LogoTitleArea = styled.div`
 
 export const MenuArea = styled.div`
    padding: 15px 12px;
-
-   background-color: #678;
 
    cursor: pointer;
 `;
