@@ -14,7 +14,7 @@ export const AppContainer = styled.div`
 export const HeaderArea = styled.div`
    width: 100%;
    height: 10vh;
-   background-color: lightskyblue;
+   background-color: #e7e5e0;
 `;
 
 export const PageBody = styled.div`

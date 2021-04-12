@@ -1,159 +1,144 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
 
 import PageTitle from '../../components/PageTitle';
 
 import Table from 'react-bootstrap/Table';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+//import Modal from 'react-bootstrap/Modal';
+//import Button from 'react-bootstrap/Button';
 
-import { array as dataProdutos } from '../../services/dataListaProdutos';
+import { GoChecklist } from 'react-icons/go';
 
-import { PageContent, AreaDescricao } from './styles';
+import { array as dataPedidosProdutos } from '../../services/dataPedidosProdutos';
+
+import { PageContent } from './styles';
+
+const StatusBadge = styled.div`
+   width: 56%;
+   padding: 3px;
+   border-radius: 5px;
+
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 13px;
+   font-weight: 600;
+   letter-spacing: 0.5px;
+   line-height: 15px;
+   color: ${(props) => props.color};
+   background-color: ${(props) => props.bgColor};
+`;
 
 export function PedidosProdutos() {
    const dispatch = useDispatch();
 
-   const [exibirModal, setExibirModal] = useState(false);
-   const [preletor] = useState({});
-
-   dispatch({
-      type: '@usuarios/SET_TOKEN',
-      payload: {
-         nome: 'Sérgio dos Santos Paulo',
-         nome_funcao: 'Preletor',
-         nome_perfil: 'Administrador',
-         nome_local: 'Regional Aricanduva',
+   //const [exibirModal, setExibirModal] = useState(false);
+   let statusPedido = [
+      0,
+      { color: '#fff', bgColor: '#c10', desc: 'Registrado' },
+      { color: '#000', bgColor: '#ee2', desc: 'Recebido' },
+      {
+         color: '#fff',
+         bgColor: '#271',
+         desc: 'Aguardando retirada',
       },
+      { color: '#fff', bgColor: '#222', desc: 'Cancelado' },
+      { color: '#fff', bgColor: '#21a', desc: 'Retirado' },
+      { color: '#444', bgColor: '#fff', desc: 'Finalizado' },
+   ];
+
+   useEffect(() => {
+      dispatch({
+         type: '@usuarios/SET_TOKEN',
+         payload: {
+            nome: 'Rafael Bevilacqua',
+            nome_funcao: 'Divulgador',
+            nome_perfil: 'Livreiro',
+            nome_local: 'Núcleo Vila Carrão',
+            cor_perfil: '#23e',
+         },
+      });
    });
 
+   /*
    function fecharModal() {
       setExibirModal(false);
    }
+   */
 
    return (
       <>
          <PageTitle
-            title="Lista de produtos e quantidades em estoque"
-            subtitle="Regional SP-Aricanduva"
-            color="#fff"
+            title="Pedidos"
+            subtitle="Núcleo Vila Carrão"
+            color="#13b"
+            cartIcon={true}
+            icon={
+               <GoChecklist
+                  style={{
+                     borderRadius: '5px',
+                     padding: '3px',
+                  }}
+                  color="#13b"
+                  size="50"
+               />
+            }
          />
          <PageContent>
-            <AreaDescricao>
-               <p
+            <Table striped>
+               <thead
                   style={{
-                     color: '#fff',
-                     backgroundColor: '#000',
-                     padding: '5px',
+                     borderTop: '2px solid #bbb',
+                     borderBottom: '3px solid #bbb',
                   }}
                >
-                  Campo de busca e filtros
-               </p>
-            </AreaDescricao>
-            <Table
-               bordered
-               style={{
-                  border: '2px solid #555',
-               }}
-            >
-               <thead className="table-dark">
-                  <tr style={{ fontSize: '17px', textAlign: 'center' }}>
-                     <th width="5%">Estoque</th>
-                     <th width="45%">Descrição</th>
-                     <th width="15%">Categoria</th>
-                     <th width="15%">Preço (R$)</th>
-                     <th width="10%">Qtd.</th>
-                     <th width="10%">Total (R$)</th>
+                  <tr style={{ fontSize: '16px', fontFamily: 'Lato' }}>
+                     <th width="10%">Número</th>
+                     <th width="15%">Data/hora</th>
+                     <th width="25%">Núcleo</th>
+                     <th width="15%">Status</th>
+                     <th width="22%">Livreiro</th>
+                     <th width="13%">Valor total (R$)</th>
                   </tr>
                </thead>
-               <tbody style={{ fontSize: '21px', fontWeight: 400 }}>
-                  {dataProdutos.map((item) => (
-                     <tr key={item.id} style={{ border: '2px solid #aaa' }}>
-                        <td
-                           style={{
-                              textAlign: 'center',
-                              backgroundColor: '#dddddd',
-                           }}
-                        >
-                           {item.qtd_estoque}
+               <tbody
+                  style={{
+                     fontSize: '16px',
+                     fontWeight: 400,
+                     fontFamily: 'Lato',
+                  }}
+               >
+                  {dataPedidosProdutos.map((item, index) => (
+                     <tr key={index} style={{ borderBottom: '2px solid #bbb' }}>
+                        <td>{item.codPedido}</td>
+                        <td>{item.data_hora}</td>
+                        <td>{item.assoc_local}</td>
+                        <td>
+                           <StatusBadge
+                              color={statusPedido[item.status].color}
+                              bgColor={statusPedido[item.status].bgColor}
+                           >
+                              {statusPedido[item.status].desc}
+                           </StatusBadge>
                         </td>
                         <td
                            style={{
                               textAlign: 'left',
-                              backgroundColor: '#d0d0d0',
                            }}
                         >
-                           <a
-                              onClick={() => setExibirModal(true)}
-                              style={{ cursor: 'pointer' }}
-                           >
-                              {item.titulo}{' '}
-                              {item.volume ? `vol. ${item.volume}` : ''}
-                           </a>
-                        </td>
-                        <td
-                           style={{
-                              backgroundColor: '#dddddd',
-                           }}
-                        >
-                           {item.categoria}
+                           {item.livreiro}
                         </td>
                         <td
                            style={{
                               textAlign: 'right',
-                              backgroundColor: '#d0d0d0',
                            }}
                         >
-                           {item.preco.toFixed(2)}
-                        </td>
-                        <td
-                           style={{
-                              textAlign: 'right',
-                              backgroundColor: '#dddddd',
-                           }}
-                        >
-                           {item.qtd_venda}
-                        </td>
-                        <td
-                           style={{
-                              textAlign: 'right',
-                              backgroundColor: '#d0d0d0',
-                           }}
-                        >
-                           {(item.preco * item.qtd_venda).toFixed(2)}
+                           {item.valor_total}
                         </td>
                      </tr>
                   ))}
                </tbody>
             </Table>
-
-            <Modal show={exibirModal} onHide={fecharModal} size="lg" centered>
-               <Modal.Header closeButton>
-                  <Modal.Title>
-                     <div style={{ display: 'flex' }}>
-                        <div>
-                           <img
-                              width="40%"
-                              src="https://i1.sndcdn.com/artworks-000060960394-e2pmxm-t500x500.jpg"
-                              alt=""
-                           />
-                        </div>
-                        <div>2</div>
-                     </div>
-                     Preletor(a)&nbsp;{preletor.name}{' '}
-                     <p className="h6">{preletor.location}</p>
-                  </Modal.Title>
-               </Modal.Header>
-               <Modal.Body>Woohoo, reading this text in a modal!</Modal.Body>
-               <Modal.Footer>
-                  <Button variant="secondary" onClick={fecharModal}>
-                     Close
-                  </Button>
-                  <Button variant="primary" onClick={fecharModal}>
-                     Save Changes
-                  </Button>
-               </Modal.Footer>
-            </Modal>
          </PageContent>
       </>
    );

@@ -15,7 +15,7 @@ export const PageContent = styled.div`
    overflow-y: scroll;
 `;
 
-export const AreaBusca = styled.div`
+export const AreaDescricao = styled.div`
    width: 100%;
    padding-top: 12px;
 
@@ -87,6 +87,22 @@ export const QuantSinalMais = styled.div`
    width: 45px;
    text-align: center;
    border: 1px solid #aaa;
+   border-top-right-radius: 7px;
+   border-bottom-right-radius: 7px;
+`;
+
+export const BotaoMenos = styled.button`
+   width: 100%;
+   border: 0;
+   background-color: #ddd;
+   border-top-left-radius: 7px;
+   border-bottom-left-radius: 7px;
+`;
+
+export const BotaoMais = styled.button`
+   width: 100%;
+   border: 0;
+   background-color: #ddd;
    border-top-right-radius: 7px;
    border-bottom-right-radius: 7px;
 `;

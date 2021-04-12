@@ -7,29 +7,27 @@ export const MenuTitle = styled.div`
    margin-bottom: 6px;
    padding-top: 5px;
    padding-bottom: 5px;
-   padding-left: 5px;
 
    transition: all ease 0.1s;
 
    color: #fff;
-   font-size: 14px;
-
-   font-family: 'Lato';
-   letter-spacing: 1px;
+   font-size: 17px;
+   font-weight: 100;
+   font-family: 'Oswald';
+   letter-spacing: 1.2px;
 `;
 
 export const MenuItem = styled.div`
    display: flex;
 
-   margin-left: 29px;
-   margin-bottom: 5px;
-   border: 1px solid #000;
-   border-radius: 5px;
+   color: #fff;
+   font-size: 17px;
+   font-weight: 100;
+   font-family: 'Oswald';
+   letter-spacing: 1.2px;
 
-   &:hover {
-      color: #fff;
-      background-color: var(--logotipo-1);
-   }
+   margin-top: 30px;
+   margin-bottom: 7px;
 `;
 
 export const Title = styled.div`

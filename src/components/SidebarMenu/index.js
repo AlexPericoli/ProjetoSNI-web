@@ -5,7 +5,7 @@ import { MenuTitle as TitleArea, MenuItem as ItemArea, Title } from './styles';
 
 MenuTitle.propTypes = {
    title: P.string,
-   icon: P.string,
+   icon: P.element,
 };
 
 MenuItem.propTypes = {

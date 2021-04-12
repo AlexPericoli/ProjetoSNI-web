@@ -19,6 +19,7 @@ export function Header() {
    const nomeFuncao = useSelector((state) => state.usuarios.nome_funcao);
    const nomePerfil = useSelector((state) => state.usuarios.nome_perfil);
    const nomeLocal = useSelector((state) => state.usuarios.nome_local);
+   const corPerfil = useSelector((state) => state.usuarios.cor_perfil);
 
    return (
       <Container>
@@ -35,10 +36,8 @@ export function Header() {
                   <InfoUsuario>
                      {nomeFuncao} {nomeUsuario}
                   </InfoUsuario>
-                  <InfoUsuarioDestaque>
-                     <strong>
-                        {nomePerfil} / {nomeLocal}
-                     </strong>
+                  <InfoUsuarioDestaque corPerfil={corPerfil}>
+                     {nomePerfil} / {nomeLocal}
                   </InfoUsuarioDestaque>
                </>
             )}

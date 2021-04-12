@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MenuTitle } from '../../components/SidebarMenu';
+import { MenuTitle, MenuItem } from '../../components/SidebarMenu';
 
 import {
    //FaUserTie,
@@ -21,26 +21,26 @@ import {
    FcDepartment,
    FcCalendar,
    FcAutomatic,
+   FcBullish,
 } from 'react-icons/fc';
 //import { RiCalendarEventLine } from 'react-icons/ri';
 import { BsFillHouseFill } from 'react-icons/bs';
 //import { BiBuildingHouse } from 'react-icons/bi';
 
 export function Sidebar() {
-   const iconSize = 36;
-   const iconSizeFc = 36;
+   const iconSize = 32;
+   const iconSizeFc = 32;
    const iconBgColor = '#dda';
 
    return (
       <Container>
          <MenuArea>
-            <Link to="/">
+            <Link to="/PageContent">
                <MenuTitle
                   title="home"
                   icon={
                      <FcHome
                         style={{
-                           border: '2px solid #000',
                            backgroundColor: iconBgColor,
                            borderRadius: '5px',
                         }}
@@ -50,13 +50,68 @@ export function Sidebar() {
                />
             </Link>
 
+            <MenuItem title="livraria" />
+
+            <Link to="/catalogo">
+               <MenuTitle
+                  title="catálogo de produtos"
+                  icon={
+                     <FaBook
+                        style={{
+                           color: '#555',
+                           //backgroundColor: iconBgColor,
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                           padding: '3px',
+                        }}
+                        size={iconSize}
+                     />
+                  }
+               />
+            </Link>
+
+            <Link to="/pedidos">
+               <MenuTitle
+                  title="consultar pedidos"
+                  icon={
+                     <FaShopify
+                        style={{
+                           color: '#555',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                           padding: '3px',
+                        }}
+                        size={iconSize}
+                     />
+                  }
+               />
+            </Link>
+
+            <Link to="/vendas">
+               <MenuTitle
+                  title="vendas"
+                  icon={
+                     <FcBullish
+                        style={{
+                           color: '#555',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                           padding: '3px',
+                        }}
+                        size={iconSize}
+                     />
+                  }
+               />
+            </Link>
+
+            <MenuItem title="consultas" />
+
             <Link to="/meetings">
                <MenuTitle
                   title="reuniões"
                   icon={
                      <FcConferenceCall
                         style={{
-                           border: '2px solid #000',
                            backgroundColor: iconBgColor,
                            borderRadius: '5px',
                         }}
@@ -72,7 +127,6 @@ export function Sidebar() {
                   icon={
                      <FcBusinessman
                         style={{
-                           border: '2px solid #000',
                            backgroundColor: iconBgColor,
                            borderRadius: '5px',
                         }}
@@ -88,7 +142,6 @@ export function Sidebar() {
                   icon={
                      <FcDepartment
                         style={{
-                           border: '2px solid #000',
                            backgroundColor: iconBgColor,
                            borderRadius: '5px',
                         }}
@@ -105,7 +158,6 @@ export function Sidebar() {
                      <BsFillHouseFill
                         style={{
                            color: '#555',
-                           border: '2px solid #000',
                            backgroundColor: iconBgColor,
                            borderRadius: '5px',
                            padding: '3px',
@@ -115,50 +167,12 @@ export function Sidebar() {
                   }
                />
             </Link>
-
-            <Link to="/pedidos">
-               <MenuTitle
-                  title="produtos em estoque"
-                  icon={
-                     <FaShopify
-                        style={{
-                           color: '#555',
-                           border: '2px solid #000',
-                           backgroundColor: iconBgColor,
-                           borderRadius: '5px',
-                           padding: '3px',
-                        }}
-                        size={iconSize}
-                     />
-                  }
-               />
-            </Link>
-
-            <Link to="/books">
-               <MenuTitle
-                  title="catálogo de produtos"
-                  icon={
-                     <FaBook
-                        style={{
-                           color: '#555',
-                           border: '2px solid #000',
-                           backgroundColor: iconBgColor,
-                           borderRadius: '5px',
-                           padding: '3px',
-                        }}
-                        size={iconSize}
-                     />
-                  }
-               />
-            </Link>
-
             <Link to="/events">
                <MenuTitle
                   title="eventos"
                   icon={
                      <FcCalendar
                         style={{
-                           border: '2px solid #000',
                            backgroundColor: iconBgColor,
                            borderRadius: '5px',
                         }}
@@ -174,7 +188,6 @@ export function Sidebar() {
                   <FaPrayingHands
                      style={{
                         color: '#555',
-                        border: '2px solid #000',
                         backgroundColor: iconBgColor,
                         borderRadius: '5px',
                         padding: '3px',

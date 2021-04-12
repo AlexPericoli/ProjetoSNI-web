@@ -24,7 +24,7 @@ export const LogoTitleArea = styled.div`
 `;
 
 export const MenuArea = styled.div`
-   padding: 15px 12px;
+   padding: 15px 17px;
 
    cursor: pointer;
 `;

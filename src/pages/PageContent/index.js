@@ -1,5 +1,6 @@
 import React from 'react';
-import Routes from '../../routes2';
+import { BrowserRouter } from 'react-router-dom';
+import Router from '../../routes';
 
 import {
    AppContainer,
@@ -17,20 +18,24 @@ import { Sidebar } from '../../components/Sidebar';
 
 export function PageContent() {
    return (
-      <ThemeProvider theme={Cores}>
-         <AppContainer>
-            <HeaderArea>
-               <Header />
-            </HeaderArea>
-            <PageBody>
-               <SidebarArea>
-                  <Sidebar />
-               </SidebarArea>
-               <Content>
-                  <Routes />
-               </Content>
-            </PageBody>
-         </AppContainer>
-      </ThemeProvider>
+      <>
+         <ThemeProvider theme={Cores}>
+            <BrowserRouter>
+               <AppContainer>
+                  <HeaderArea>
+                     <Header />
+                  </HeaderArea>
+                  <PageBody>
+                     <SidebarArea>
+                        <Sidebar />
+                     </SidebarArea>
+                     <Content>
+                        <Router />
+                     </Content>
+                  </PageBody>
+               </AppContainer>
+            </BrowserRouter>
+         </ThemeProvider>
+      </>
    );
 }

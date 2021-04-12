@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
    display: flex;
+   border-bottom: 1px solid #555;
 `;
 
 export const LogoArea = styled.div`
@@ -45,26 +46,23 @@ export const InfoArea = styled.div`
    padding-right: 10px;
 `;
 
-export const InfoUsuario = styled.p`
-   font-size: 19px;
+export const InfoUsuario = styled.div`
+   font-size: 15px;
    font-weight: 600;
-   font-family: 'Oswald';
-   line-height: 1px;
+   font-family: 'Lato';
    letter-spacing: 0.4px;
    text-transform: uppercase;
 
-   margin-top: 12px;
+   border-bottom: 1px solid #125;
 `;
 
-export const InfoUsuarioDestaque = styled.p`
-   color: #fff;
-   background-color: #e21;
+export const InfoUsuarioDestaque = styled.div`
    padding: 12px;
    border-radius: 5px;
 
-   font-size: 18px;
+   font-size: 15px;
    font-weight: 600;
-   font-family: 'Oswald';
+   font-family: 'Lato';
    line-height: 1px;
    letter-spacing: 0.4px;
    text-transform: uppercase;

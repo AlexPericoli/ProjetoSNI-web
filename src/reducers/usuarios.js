@@ -8,6 +8,7 @@ const initial_state = {
    nome_perfil: '',
    id_assoc_local: 0,
    nome_local: '',
+   cor_perfil: '',
 };
 
 const reducer = (state = initial_state, action) => {
@@ -20,6 +21,7 @@ const reducer = (state = initial_state, action) => {
    let id_funcao;
    let nome_funcao;
    let nome_local;
+   let cor_perfil;
 
    switch (action.type) {
       case '@usuarios/SET_TOKEN':
@@ -32,6 +34,7 @@ const reducer = (state = initial_state, action) => {
          id_funcao = action.payload.id_funcao;
          nome_funcao = action.payload.nome_funcao;
          nome_local = action.payload.nome_local;
+         cor_perfil = action.payload.cor_perfil;
 
          return {
             ...state,
@@ -44,6 +47,7 @@ const reducer = (state = initial_state, action) => {
             id_funcao,
             nome_funcao,
             nome_local,
+            cor_perfil,
          };
 
       default:
