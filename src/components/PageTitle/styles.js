@@ -43,9 +43,7 @@ export const IconArea = styled.div`
    margin-right: 20px;
    border-radius: 7px;
 
-   a {
-      cursor: pointer;
-   }
+   cursor: pointer;
 
    div {
       display: flex;
@@ -87,4 +85,8 @@ export const ModalSubtitle = styled.h3`
 export const ModalInfoProduto = styled.p`
    font-size: 15px;
    line-height: 17px;
+`;
+
+export const ButtonArea = styled.div`
+   display: flex;
 `;

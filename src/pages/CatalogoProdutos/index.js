@@ -102,11 +102,15 @@ export function CatalogoProdutos() {
    }
 
    function adicionarProdutoCart(produto) {
-      const nome_produto = `${produto.nome} ${produto.volume} - ${produto.subtitulo}`;
+      const volume = produto.volume ? produto.volume : '';
+      const subtitulo = produto.subtitulo ? ` - ${produto.subtitulo}` : '';
+      const nome_produto = `${produto.nome} ${volume} ${subtitulo}`;
       const valor = produto.valor.toFixed(2);
       const subtotal = valor * qtdProduto;
+
       let prod = {
          id: produto.id_prod,
+         imagem: produto.imagem,
          nome: nome_produto,
          valor,
          qtd: qtdProduto,
@@ -117,6 +121,8 @@ export function CatalogoProdutos() {
          type: '@cart/ADD_ITEM',
          payload: { prod },
       });
+
+      fecharModal();
    }
 
    function abrirModal(id) {

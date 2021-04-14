@@ -9,6 +9,9 @@ import { Preload } from './pages/Preload';
 import { PageContent } from './pages/PageContent';
 import { SignIn } from './pages/SignIn';
 
+import { Home } from './pages/Home';
+import { Regionais } from './pages/Regionais';
+
 const store = createStore(reducers);
 
 export function App() {
@@ -24,6 +27,9 @@ export function App() {
                   component={PageContent}
                />
                <Route path="/signin" exact name="SignIn" component={SignIn} />
+
+               <Route path="/PageContent" exact component={Home} />
+               <Route path="/regionais" component={Regionais} />
             </Switch>
          </BrowserRouter>
       </Provider>

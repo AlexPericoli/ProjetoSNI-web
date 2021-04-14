@@ -54,37 +54,84 @@ export function EstoqueProdutos() {
                   Campo de busca e filtros
                </p>
             </AreaDescricao>
-            <Table
-               bordered
-               style={{
-                  border: '2px solid #555',
-               }}
-            >
-               <thead className="table-dark">
-                  <tr style={{ fontSize: '17px', textAlign: 'center' }}>
-                     <th width="5%">Estoque</th>
-                     <th width="45%">Descrição</th>
-                     <th width="15%">Categoria</th>
-                     <th width="15%">Preço (R$)</th>
-                     <th width="10%">Qtd.</th>
-                     <th width="10%">Total (R$)</th>
+            <Table striped>
+               <thead
+                  style={{
+                     borderTop: '2px solid #bbb',
+                     borderBottom: '3px solid #bbb',
+                  }}
+               >
+                  <tr style={{ fontSize: '16px', fontFamily: 'Lato' }}>
+                     <th width="30%">Descrição</th>
+                     <th width="10%">Categoria</th>
+                     <th width="10%" style={{ textAlign: 'right' }}>
+                        Preço (R$)
+                     </th>
+                     <th width="10%" style={{ textAlign: 'center' }}>
+                        <div
+                           style={{
+                              textAlign: 'center',
+                              backgroundColor: '#f55',
+                              padding: '2px 10px',
+                              borderRadius: '10px',
+                           }}
+                        >
+                           RETIRADO
+                        </div>
+                     </th>
+                     <th width="10%" style={{ textAlign: 'center' }}>
+                        <div
+                           style={{
+                              textAlign: 'center',
+                              backgroundColor: '#ff8',
+                              padding: '2px 10px',
+                              borderRadius: '10px',
+                           }}
+                        >
+                           ESTOQUE AL
+                        </div>
+                     </th>
+                     <th width="10%" style={{ textAlign: 'center' }}>
+                        <div
+                           style={{
+                              textAlign: 'center',
+                              backgroundColor: '#9fb',
+                              padding: '2px 10px',
+                              borderRadius: '10px',
+                           }}
+                        >
+                           VENDIDO
+                        </div>
+                     </th>
+                     <th width="10%" style={{ textAlign: 'center' }}>
+                        <div
+                           style={{
+                              textAlign: 'center',
+                              backgroundColor: '#9cf',
+                              padding: '2px 10px',
+                              borderRadius: '10px',
+                           }}
+                        >
+                           FINALIZADO
+                        </div>
+                     </th>
+                     <th width="10%" style={{ textAlign: 'right' }}>
+                        Qtd. total
+                     </th>
                   </tr>
                </thead>
-               <tbody style={{ fontSize: '21px', fontWeight: 400 }}>
+               <tbody
+                  style={{
+                     fontSize: '16px',
+                     fontWeight: 400,
+                     fontFamily: 'Lato',
+                  }}
+               >
                   {dataProdutos.map((item) => (
                      <tr key={item.id} style={{ border: '2px solid #aaa' }}>
                         <td
                            style={{
-                              textAlign: 'center',
-                              backgroundColor: '#dddddd',
-                           }}
-                        >
-                           {item.qtd_estoque}
-                        </td>
-                        <td
-                           style={{
                               textAlign: 'left',
-                              backgroundColor: '#d0d0d0',
                            }}
                         >
                            <a
@@ -95,36 +142,52 @@ export function EstoqueProdutos() {
                               {item.volume ? `vol. ${item.volume}` : ''}
                            </a>
                         </td>
-                        <td
-                           style={{
-                              backgroundColor: '#dddddd',
-                           }}
-                        >
-                           {item.categoria}
-                        </td>
+                        <td style={{}}>{item.categoria}</td>
                         <td
                            style={{
                               textAlign: 'right',
-                              backgroundColor: '#d0d0d0',
                            }}
                         >
                            {item.preco.toFixed(2)}
                         </td>
                         <td
                            style={{
-                              textAlign: 'right',
-                              backgroundColor: '#dddddd',
+                              textAlign: 'center',
+                              fontWeight: 700,
                            }}
                         >
-                           {item.qtd_venda}
+                           0
+                        </td>
+                        <td
+                           style={{
+                              textAlign: 'center',
+                              fontWeight: 700,
+                           }}
+                        >
+                           0
+                        </td>
+                        <td
+                           style={{
+                              textAlign: 'center',
+                              fontWeight: 700,
+                           }}
+                        >
+                           0
+                        </td>
+                        <td
+                           style={{
+                              textAlign: 'center',
+                              fontWeight: 700,
+                           }}
+                        >
+                           0
                         </td>
                         <td
                            style={{
                               textAlign: 'right',
-                              backgroundColor: '#d0d0d0',
                            }}
                         >
-                           {(item.preco * item.qtd_venda).toFixed(2)}
+                           {item.qtd_estoque}
                         </td>
                      </tr>
                   ))}

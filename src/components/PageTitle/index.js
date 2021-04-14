@@ -9,6 +9,7 @@ import {
    IconArea,
    ModalBody,
    ModalCartArea,
+   ButtonArea,
 } from './styles';
 
 import Modal from 'react-bootstrap/Modal';
@@ -52,31 +53,48 @@ export default function PageTitle({ title, subtitle, color, icon, cartIcon }) {
             </Subtitle>
             <a onClick={() => abrirCart()}>
                {cartIcon && (
-                  <>
-                     <IconArea>
-                        <FaShopify size={33} />
-                        <div>1</div>
-                     </IconArea>
-                  </>
+                  <IconArea>
+                     <FaShopify size={33} />
+                     <div>{cart.length}</div>
+                  </IconArea>
                )}
             </a>
          </PageTitleArea>
 
-         <Modal show={exibirModal} onHide={fecharModal} size="lg" centered>
-            <ModalBody>
+         <Modal show={exibirModal} onHide={fecharModal} size="xl" centered>
+            <ModalBody style={{ backgroundColor: '#ddd' }}>
                <ModalCartArea>
-                  <Table size="sm" className="table-dark">
+                  <Table
+                     size="lg"
+                     striped
+                     className="table-dark"
+                     style={{ fontSize: '16px' }}
+                  >
                      <thead>
                         <tr>
-                           <th align="center" width="19%">
+                           <th width="14%" style={{ textAlign: 'center' }}>
                               Cód. produto
                            </th>
-                           <th width="45%">Título</th>
-                           <th width="12%">Valor (R$)</th>
-                           <th width="4%"></th>
-                           <th width="6%">Qtd</th>
-                           <th width="6%"></th>
-                           <th width="8%">Subtotal</th>
+                           <th width="46%">Título</th>
+                           <th
+                              width="15%"
+                              style={{
+                                 textAlign: 'right',
+                              }}
+                           >
+                              Valor (R$)
+                           </th>
+                           <th
+                              width="15%"
+                              style={{
+                                 textAlign: 'right',
+                              }}
+                           >
+                              Qtd
+                           </th>
+                           <th width="20%" style={{ textAlign: 'right' }}>
+                              Subtotal
+                           </th>
                         </tr>
                      </thead>
                      <tbody>
@@ -84,11 +102,13 @@ export default function PageTitle({ title, subtitle, color, icon, cartIcon }) {
                            <tr key={index}>
                               <td align="center">{item.id}</td>
                               <td>{item.nome}</td>
-                              <td align="right">{item.valor}</td>
-                              <td></td>
+                              <td align="right">
+                                 {parseFloat(item.valor).toFixed(2)}
+                              </td>
                               <td align="right">{item.qtd}</td>
-                              <td></td>
-                              <td align="right">{item.subtotal}</td>
+                              <td align="right">
+                                 {parseFloat(item.subtotal).toFixed(2)}
+                              </td>
                            </tr>
                         ))}
                      </tbody>
@@ -96,9 +116,22 @@ export default function PageTitle({ title, subtitle, color, icon, cartIcon }) {
                </ModalCartArea>
             </ModalBody>
             <Modal.Footer>
-               <Button variant="secondary" onClick={fecharModal}>
-                  Close
-               </Button>
+               <ButtonArea>
+                  <Button
+                     variant="primary"
+                     onClick={fecharModal}
+                     style={{ marginRight: '20px' }}
+                  >
+                     Confirmar pedido
+                  </Button>
+                  <Button
+                     variant="secondary"
+                     onClick={fecharModal}
+                     style={{ width: '160px' }}
+                  >
+                     Fechar
+                  </Button>
+               </ButtonArea>
             </Modal.Footer>
          </Modal>
       </>

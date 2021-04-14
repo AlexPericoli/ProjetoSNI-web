@@ -38,9 +38,7 @@ export function Preload() {
                   history.push('PageContent');
                }
             } catch (err) {
-               return Response.status(401).json({
-                  error: 'Token não está presente',
-               });
+               history.push('SignIn');
             }
          } else {
             history.push('SignIn');

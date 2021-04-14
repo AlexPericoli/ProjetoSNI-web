@@ -4,6 +4,7 @@ export const MenuTitle = styled.div`
    display: flex;
 
    margin-top: 6px;
+   margin-left: 12px;
    margin-bottom: 6px;
    padding-top: 5px;
    padding-bottom: 5px;
@@ -11,7 +12,7 @@ export const MenuTitle = styled.div`
    transition: all ease 0.1s;
 
    color: #fff;
-   font-size: 17px;
+   font-size: 15px;
    font-weight: 100;
    font-family: 'Oswald';
    letter-spacing: 1.2px;
@@ -21,7 +22,7 @@ export const MenuItem = styled.div`
    display: flex;
 
    color: #fff;
-   font-size: 17px;
+   font-size: 15px;
    font-weight: 100;
    font-family: 'Oswald';
    letter-spacing: 1.2px;

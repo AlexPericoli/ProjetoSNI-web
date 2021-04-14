@@ -70,6 +70,23 @@ export function Sidebar() {
                />
             </Link>
 
+            <Link to="/estoque">
+               <MenuTitle
+                  title="estoque assoc. local"
+                  icon={
+                     <FaBook
+                        style={{
+                           color: '#555',
+                           backgroundColor: iconBgColor,
+                           borderRadius: '5px',
+                           padding: '3px',
+                        }}
+                        size={iconSize}
+                     />
+                  }
+               />
+            </Link>
+
             <Link to="/pedidos">
                <MenuTitle
                   title="consultar pedidos"
